@@ -22,6 +22,13 @@ npm link --force mysql
 npm i mysql-server
 service mysql start  to start   also instead of service you can use systemctl
 
+
+npm i cors   to fix the     allow access orgin error
+npm i react-router-dom
+
+npm i axios  this is the middle where between the back and front using api requests
+
+
 sudo /etc/init.d/mysql start  this fixed broken connection; be usre to always test a new connection when builfing using """""+"""""
 
 

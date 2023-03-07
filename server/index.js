@@ -50,6 +50,33 @@ const values = [
      })
  })
 
+app.delete('/books/:id', (req, res) =>{
+    const bookId = req.params.id
+    const q = 'DELETE FROM books WHERE id =?'
+
+    db.query(q,[bookId],(err,data)=>{
+      if(err) return res.json(err)
+      return res.jsonm('erase')    
+    })
+})
+
+
+app.put('/books/:id', (req, res) =>{
+    const bookId = req.params.id
+    //                                                          bookId
+    const q = "UPDATE books SET 'title' =?, 'desc'=? , 'cover'=? WHERE id =? "
+
+    const values = [
+        req.body.title,
+        req.body.desc,
+        req.body.cover,
+      ];
+
+    db.query(q,[...values,bookId],(err,data)=>{
+      if(err) return res.json(err)
+      return res.jsonm('change')    
+    })
+})
 
  //port tyhat I used deslpy the backedn on the web serbver
 app.listen(8000, ()=>{
